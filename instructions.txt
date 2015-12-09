@@ -1,0 +1,14 @@
+Architecture:
+My understanding of the microservice architecture lead to the design of two separate web services - VenueWS to handle the Foursquare API related part and VenueFavoriteWS to handle the venue favorite part. 
+
+Instructions/comments about the command line client:
+I tried to make the client usable without instructions but the few hours I had wasn't enough to make it that userfriendly. 
+- Use the given numbers to select the activity and give the asked parameters
+- You should not use spaces when inserting parameters :)
+- Venue search and photo fetching aren't working because I couldn't get the Foursquare API to work so they always return error codes. I did try to do proper error handling though that the service wouldn't crash..
+- Saving favorites is supposed to get the venue by the given id and save it as favorite to file (c:/temp, don't know if this will work in other environments than mine) but because of the Foursquare issue, this will only save a favorite with dummy data (with randomly generated id)
+- You can also list the saved favorites and edit and deletion should work by giving the id of the favorite
+
+I used Java 1.8.0_66 and TomCat v8.0. I had never heard about Maven before but (hopefully) managed to use the plugins in eclipse correctly...
+
+And what comes to the missing unit tests: I would porbably have written unit tests for VenueService and VenueFavoriteService -classes for different kinds of inputs (valid and invalid) to get as good code coverage as possible. Of course also verifying the output. Foursquare API -part would have been mocked. I'm not sure if it would have been possible to test the web service -classes themselves, but those would be good to test also as the JSON parsing is done there. 
